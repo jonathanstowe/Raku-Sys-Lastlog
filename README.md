@@ -4,6 +4,8 @@ Get access to the last login information on Unix-like systems
 
 ## Description
 
+
+
 ## Installation
 
 Currently there is no dedicated test to determine whether your platform is
@@ -26,7 +28,7 @@ Or you can install directly with "panda":
 
     panda install .
 
-    # Remove installation
+    # Remote installation
 
     panda install Sys::Lastlog
 
