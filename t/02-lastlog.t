@@ -29,6 +29,10 @@ ok $ret.defined, "it's defined";
 
 isa-ok $ret, Sys::Lastlog::Entry, "and that returns the right thing";
 
+isa-ok $ret.timestamp(), DateTime, "timestamp is a DateTime";
+
+ok $ret.has-logged-in, "has-logged-in";
+
 
 
 done();

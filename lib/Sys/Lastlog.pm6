@@ -9,6 +9,14 @@ class Sys::Lastlog {
         has int $.time;
         has Str $.line;
         has Str $.host;
+
+        method timestamp() returns DateTime {
+            DateTime.new($!time // 0 );
+        }
+
+        method has-logged-in() returns Bool {
+            $!time.defined;
+        }
     }
 
 
