@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <pwd.h>
 #include <unistd.h>
+#include <string.h>
 
 #ifdef USE_LASTLOG_H
 #include <lastlog.h>
@@ -17,7 +18,11 @@
 int get_lastlog_fd(void);
 char *lastlog_path(void);
 
-extern struct lastlog *getllent(void)
+
+/* 
+ * Functions to provide a getut* like interface to lastlog
+ */
+struct lastlog *getllent(void)
 {
 
    static struct lastlog llent;
@@ -40,7 +45,7 @@ extern struct lastlog *getllent(void)
    }
 }
 
-extern struct lastlog *getlluid(int uid)
+struct lastlog *getlluid(int uid)
 {
   static struct lastlog llent;
   int ll_fd;
@@ -70,6 +75,22 @@ extern struct lastlog *getlluid(int uid)
   }
 }
 
+struct lastlog *getllnam(char *logname)
+{
+    struct passwd *pwd;
+    struct lastlog *llent;
+
+    if((pwd = getpwnam(logname)))
+    {
+      llent = getlluid(pwd->pw_uid);
+    }
+    else
+    {
+      llent = (void *)0;
+    }
+	 return llent;
+}
+
 int get_lastlog_fd(void)
 {
 
@@ -88,7 +109,7 @@ char *lastlog_path(void)
    return _PATH_LASTLOG;
 }
 
-extern void setllent(void)
+void setllent(void)
 {
    int ll_fd;
 
@@ -98,19 +119,57 @@ extern void setllent(void)
    }     
 }
 
-extern struct lastlog *getllnam(char *logname)
-{
-    struct passwd *pwd;
-    struct lastlog *llent;
+/*
+ * This provides a shim as NativeCall doesn't quite deal with char foo[] yet
+ */
 
-    if((pwd = getpwnam(logname)))
-    {
-      llent = getlluid(pwd->pw_uid);
-    }
-    else
-    {
-      llent = (void *)0;
-    }
-	 return llent;
+struct p_lastlog {
+	int   ll_time;
+	char *ll_line;
+	char *ll_host;
+};
+
+/* 
+ * copy a lastlog * to a p_laslog *
+*/
+struct p_lastlog *ll2p(struct lastlog *llent) {
+
+	static struct p_lastlog p_llent;
+
+	if ( llent != NULL ) {
+		static char ll_line[sizeof(llent->ll_line) + 1];
+		strncpy(ll_line,llent->ll_line, sizeof(llent->ll_line));
+		ll_line[sizeof(llent->ll_line)] = 0;
+		p_llent.ll_line = ll_line;
+		static char ll_host[sizeof(llent->ll_host) + 1];
+		strncpy(ll_host,llent->ll_host, sizeof(llent->ll_host));
+		ll_host[sizeof(llent->ll_host)] = 0;
+		p_llent.ll_host = ll_host;
+
+		p_llent.ll_time = llent->ll_time;
+
+		return &p_llent;
+	}
+	else {
+		return (struct p_lastlog *)0;
+	}
 }
 
+/*
+ * These are the functions that return the amended structure;
+ */
+extern struct p_lastlog *p_getllent(void) {
+	return ll2p(getllent());
+}
+
+extern struct p_lastlog *p_getlluid(int uid) {
+	return ll2p(getlluid(uid));
+}
+
+extern struct p_lastlog *p_getllnam(char *logname) {
+	return ll2p(getllnam(logname));
+}
+
+extern void p_setllent(void) {
+	setllent();
+}
