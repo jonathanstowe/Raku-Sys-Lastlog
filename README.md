@@ -4,6 +4,9 @@ Get access to the last login information on Unix-like systems
 
 ## Description
 
+This module is designed to provided an Object Oriented API to the lastlog
+file found on many Unix-like systems.  Some systems do not have this file
+so this module will not be of much use on those systems.
 
 
 ## Installation
