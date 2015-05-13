@@ -13,7 +13,8 @@
     "Sys::Lastlog" : "lib/Sys/Lastlog.pm6"
   },
   "depends" : [
-    "LibraryMake"
+    "LibraryMake",
+    "System::Passwd"
   ],
   "test-depends" : [
     "Test"
