@@ -4,6 +4,7 @@ use NativeCall;
 
 class Sys::Lastlog {
 
+    use System::Passwd;
 
     class Entry is repr('CStruct') {
         has int $.time;
@@ -19,6 +20,11 @@ class Sys::Lastlog {
         }
     }
 
+    #| Class to represent return from list.  
+    class UserEntry {
+        has Sys::Lastlog::Entry $.entry;
+        has System::Passwd::User $.user;
+    }
 
 
     sub library {
@@ -47,6 +53,26 @@ class Sys::Lastlog {
 
     my sub p_getllent()    returns Entry is native(&library) { * }
 
+    method getllent() returns Entry {
+        p_getllent();
+    }
+
+    method list() {
+        my Int $i = 0;
+        gather {
+            loop {
+                if self.getllent() -> $entry {
+                    if get_user_by_uid($i++) -> $user {
+                        take UserEntry.new( entry => $entry, user => $user);
+                    }
+                }
+                else {
+                    last;
+                }
+            }
+        }
+    }
+    
     my sub p_getlluid(Int) returns Entry is native(&library) { * }
 
     method getlluid(Int $uid --> Entry) {
