@@ -16,7 +16,7 @@ class Sys::Lastlog {
         }
 
         method has-logged-in() returns Bool {
-            $!time.defined;
+            $!time.defined && ($!time != 0);
         }
     }
 
@@ -24,6 +24,22 @@ class Sys::Lastlog {
     class UserEntry {
         has Sys::Lastlog::Entry $.entry;
         has System::Passwd::User $.user;
+
+        method gist() {
+            my Str $latest;
+
+            if $!entry.has-logged-in {
+                $latest = $!entry.timestamp.Str;
+            }
+            else {
+                $latest = '**Never logged in**';
+            }
+            sprintf self.r-format, $!user.username, $!entry.line, $!entry.host, $latest;
+        }
+
+        method r-format() {
+            "%-26s%-10s%-16s%-25s";
+        }
     }
 
 
@@ -55,6 +71,10 @@ class Sys::Lastlog {
 
     method getllent() returns Entry {
         p_getllent();
+    }
+
+    method r-format() {
+        UserEntry.r-format;
     }
 
     method list() {
