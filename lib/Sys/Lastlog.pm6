@@ -149,7 +149,7 @@ record is for.
 
 class Sys::Lastlog {
 
-    require System::Passwd;
+    use System::Passwd;
 
     class Entry is repr('CStruct') {
         has int $.time;
@@ -167,13 +167,9 @@ class Sys::Lastlog {
 
     class UserEntry {
         has Sys::Lastlog::Entry $.entry;
-        has $.user;
+        has System::Passwd::User $.user;
 
         method gist() {
-            self.Str;
-		  }
-
-		  method Str() {
             my Str $latest;
 
             if $!entry.has-logged-in {
@@ -230,7 +226,7 @@ class Sys::Lastlog {
         gather {
             loop {
                 if self.getllent() -> $entry {
-                    if System::Passwd::get_user_by_uid($i++) -> $user {
+                    if get_user_by_uid($i++) -> $user {
                         take UserEntry.new( entry => $entry, user => $user);
                     }
                 }
