@@ -255,3 +255,4 @@ class Sys::Lastlog:ver<v0.0.3>:auth<github:jonathanstowe> {
         p_setllent();
     }
 }
+# vim: expandtab shiftwidth=4 ft=perl6
