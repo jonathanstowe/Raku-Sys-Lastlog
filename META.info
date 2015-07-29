@@ -12,7 +12,7 @@
     "LibraryMake"
   ],
   "provides" : {
-    "Sys::Lastlog" : "lib/Sys/Lastlog.pm6"
+    "Sys::Lastlog" : "lib/Sys/Lastlog.pm"
   },
   "depends" : [
     "LibraryMake",
