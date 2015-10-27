@@ -5,7 +5,9 @@ language: perl6
 sudo: false
 perl6:
   - latest
-#  - 2015.09
 install:
   - rakudobrew build-panda
   - panda installdeps .
+  - panda-build
+script:
+  - PERL6LIB=blib/lib prove -v -r --exec=perl6 t/
