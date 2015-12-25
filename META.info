@@ -17,7 +17,7 @@
   "provides" : {
     "Sys::Lastlog" : "lib/Sys/Lastlog.pm"
   },
-  "resources" : [ "lib/lastloghelper.so" ],
+  "resources" : [ "libraries/lastloghelper" ],
   "depends" : [
     "LibraryMake",
     "System::Passwd"
@@ -26,7 +26,7 @@
     "Test"
   ],
   "description" : "Perl 6 access to Lastlog information on Unix-like systems",
-  "version" : "v0.0.5",
+  "version" : "v0.0.6",
   "tags" : [ "unix", "audit", "lastlog" ],
   "auth" : "github:jonathanstowe"
 }
