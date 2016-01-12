@@ -147,7 +147,7 @@ record is for.
 
 =end pod
 
-class Sys::Lastlog:ver<v0.0.6>:auth<github:jonathanstowe> {
+class Sys::Lastlog:ver<0.0.7>:auth<github:jonathanstowe> {
 
     use System::Passwd;
 
@@ -215,7 +215,7 @@ class Sys::Lastlog:ver<v0.0.6>:auth<github:jonathanstowe> {
         }
     }
     
-    my sub p_getlluid(Int) returns Entry is native(HELPER) { * }
+    my sub p_getlluid(int32) returns Entry is native(HELPER) { * }
 
     method getlluid(Int $uid --> Entry) {
         p_getlluid($uid);
