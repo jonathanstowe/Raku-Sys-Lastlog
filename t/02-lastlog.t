@@ -8,6 +8,7 @@ use Test;
 plan 16;
 
 use Sys::Lastlog;
+use System::Passwd::User;
 
 my $uid;
 my $logname;
