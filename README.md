@@ -2,6 +2,8 @@
 
 Get access to the last login information on Unix-like systems
 
+[![Build Status](https://travis-ci.org/jonathanstowe/p6-Sys-Lastlog.svg?branch=master)](https://travis-ci.org/jonathanstowe/p6-Sys-Lastlog)
+
 ## Description
 
 This module is designed to provided an Object Oriented API to the lastlog
