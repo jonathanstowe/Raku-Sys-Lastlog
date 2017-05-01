@@ -1,5 +1,5 @@
-use v6;
-use LibraryMake;
+use v6.c;
+
 use NativeCall;
 
 
