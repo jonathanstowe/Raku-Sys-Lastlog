@@ -1,4 +1,4 @@
-use v6.c;
+use v6;
 
 use NativeCall;
 
@@ -156,11 +156,11 @@ class Sys::Lastlog:ver<0.0.9>:auth<github:jonathanstowe> {
         has Str $.line;
         has Str $.host;
 
-        method timestamp() returns DateTime {
+        method timestamp( --> DateTime ) {
             DateTime.new($!time // 0 );
         }
 
-        method has-logged-in() returns Bool {
+        method has-logged-in( --> Bool ) {
             $!time.defined && ($!time != 0);
         }
     }
@@ -169,7 +169,7 @@ class Sys::Lastlog:ver<0.0.9>:auth<github:jonathanstowe> {
         has Sys::Lastlog::Entry $.entry;
         has System::Passwd::User $.user;
 
-        method gist() {
+        method gist( --> Str ) {
             my Str $latest;
 
             if $!entry.has-logged-in {
@@ -181,7 +181,7 @@ class Sys::Lastlog:ver<0.0.9>:auth<github:jonathanstowe> {
             sprintf self.r-format, $!user.username, $!entry.line, $!entry.host, $latest;
         }
 
-        method r-format() {
+        method r-format( --> Str ) {
             "%-26s%-10s%-16s%-25s";
         }
     }
@@ -189,13 +189,13 @@ class Sys::Lastlog:ver<0.0.9>:auth<github:jonathanstowe> {
     my constant HELPER = %?RESOURCES<libraries/lastloghelper>.Str;
 
 
-    my sub p_getllent()    returns Entry is native(HELPER) { * }
+    my sub p_getllent( --> Entry )  is native(HELPER) { * }
 
-    method getllent() returns Entry {
+    method getllent( --> Entry ) {
         p_getllent();
     }
 
-    method r-format() {
+    method r-format( --> Str ) {
         UserEntry.r-format;
     }
 
@@ -215,13 +215,13 @@ class Sys::Lastlog:ver<0.0.9>:auth<github:jonathanstowe> {
         }
     }
     
-    my sub p_getlluid(int32) returns Entry is native(HELPER) { * }
+    my sub p_getlluid(int32 --> Entry ) is native(HELPER) { * }
 
     method getlluid(Int $uid --> Entry) {
         p_getlluid($uid);
     }
 
-    my sub p_getllnam(Str) returns Entry is native(HELPER) { * }
+    my sub p_getllnam(Str --> Entry ) is native(HELPER) { * }
 
     method getllnam(Str $logname --> Entry) {
         p_getllnam($logname);
