@@ -13,8 +13,6 @@ use System::Passwd::User;
 my $uid;
 my $logname;
 
-#diag try { qx/id/ };
-
 if $*USER.defined {
    $uid = $*USER.Numeric;
    $logname = $*USER.Str;

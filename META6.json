@@ -7,7 +7,7 @@
     "email": "jns+git@gellyfish.co.uk",
     "bugtracker": "https://github.com/jonathanstowe/p6-Sys-Lastlog/issues"
   },
-  "perl": "6",
+  "perl": "6.*",
   "resources": [
     "libraries/lastloghelper"
   ],
