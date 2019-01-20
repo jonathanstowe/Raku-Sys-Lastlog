@@ -29,12 +29,10 @@ install this with *zef* :
 
 ## Support
 
-Suggestions/patches are welcomed via github at:
-
-https://github.com/jonathanstowe/Sys-Lastlog/issues
+Suggestions/patches are welcomed via github at https://github.com/jonathanstowe/Sys-Lastlog/issues
 
 ## Copyright and Licence
 
 This is free software, please see the [LICENCE](LICENCE) file.
 
-© Jonathan Stowe 2015-2017
+© Jonathan Stowe 2015-2019 

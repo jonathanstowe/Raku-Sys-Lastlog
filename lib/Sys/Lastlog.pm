@@ -147,7 +147,7 @@ record is for.
 
 =end pod
 
-class Sys::Lastlog:ver<0.0.9>:auth<github:jonathanstowe> {
+class Sys::Lastlog:ver<0.0.10>:auth<github:jonathanstowe>:api<1.0> {
 
     use System::Passwd;
 
