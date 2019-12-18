@@ -1,17 +1,18 @@
 {
   "name": "Sys::Lastlog",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "auth": "github:jonathanstowe",
   "api": "1.0",
-  "description": "Perl 6 access to Lastlog information on Unix-like systems",
-  "source-url": "git://github.com/jonathanstowe/p6-Sys-Lastlog.git",
+  "description": "Raku access to Lastlog information on Unix-like systems",
+  "source-url": "git://github.com/jonathanstowe/Raku-Sys-Lastlog.git",
   "support": {
     "irc": "irc://irc.freenode.net/#perl6",
-    "source": "git://github.com/jonathanstowe/p6-Sys-Lastlog.git",
+    "source": "git://github.com/jonathanstowe/Raku-Sys-Lastlog.git",
     "email": "jns+git@gellyfish.co.uk",
-    "bugtracker": "https://github.com/jonathanstowe/p6-Sys-Lastlog/issues"
+    "bugtracker": "https://github.com/jonathanstowe/Raku-Sys-Lastlog/issues"
   },
   "perl": "6.*",
+  "raku": "6.*",
   "resources": [
     "libraries/lastloghelper"
   ],
@@ -38,5 +39,5 @@
   "authors": [
     "Jonathan Stowe <jns+git@gellyfish.com>"
   ],
-  "meta-version": "0"
+  "meta-version": "1"
 }

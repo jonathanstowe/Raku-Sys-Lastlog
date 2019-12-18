@@ -16,7 +16,7 @@ so this module will not be of much use on those systems.
 Currently there is no dedicated test to determine whether your platform is
 supported, the unit tests will simply fail horribly.
 
-Assuming you have a working Rakudo Perl 6 installation you should be able to
+Assuming you have a working Rakudo installation you should be able to
 install this with *zef* :
 
     # From the source directory
@@ -29,7 +29,7 @@ install this with *zef* :
 
 ## Support
 
-Suggestions/patches are welcomed via github at https://github.com/jonathanstowe/Sys-Lastlog/issues
+Suggestions/patches are welcomed via github at https://github.com/jonathanstowe/Raku-Sys-Lastlog/issues
 
 ## Copyright and Licence
 
