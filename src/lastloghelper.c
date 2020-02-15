@@ -139,10 +139,10 @@ struct p_lastlog *ll2p(struct lastlog *llent) {
 	if ( llent != NULL ) {
 		static char ll_line[sizeof(llent->ll_line) + 1];
 		static char ll_host[sizeof(llent->ll_host) + 1];
-		strncpy(ll_line,llent->ll_line, sizeof(llent->ll_line));
+		strncpy(ll_line,llent->ll_line, sizeof(ll_line));
 		ll_line[sizeof(llent->ll_line)] = 0;
 		p_llent.ll_line = ll_line;
-		strncpy(ll_host,llent->ll_host, sizeof(llent->ll_host));
+		strncpy(ll_host,llent->ll_host, sizeof(ll_host));
 		ll_host[sizeof(llent->ll_host)] = 0;
 		p_llent.ll_host = ll_host;
 
