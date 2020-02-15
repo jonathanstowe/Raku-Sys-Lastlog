@@ -2,7 +2,7 @@
 
 Get access to the last login information on Unix-like systems
 
-[![Build Status](https://travis-ci.org/jonathanstowe/p6-Sys-Lastlog.svg?branch=master)](https://travis-ci.org/jonathanstowe/p6-Sys-Lastlog)
+[![Build Status](https://travis-ci.org/jonathanstowe/Raku-Sys-Lastlog.svg?branch=master)](https://travis-ci.org/jonathanstowe/Raku-Sys-Lastlog)
 
 ## Description
 
@@ -15,6 +15,9 @@ so this module will not be of much use on those systems.
 
 Currently there is no dedicated test to determine whether your platform is
 supported, the unit tests will simply fail horribly.
+
+It is known not to work on Windows, MacOS and Alpine Linux so will
+abort the installation without tring on those platforms.
 
 Assuming you have a working Rakudo installation you should be able to
 install this with *zef* :
@@ -35,4 +38,4 @@ Suggestions/patches are welcomed via github at https://github.com/jonathanstowe/
 
 This is free software, please see the [LICENCE](LICENCE) file.
 
-© Jonathan Stowe 2015-2019 
+© Jonathan Stowe 2015-2020
