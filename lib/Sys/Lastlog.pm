@@ -204,7 +204,7 @@ class Sys::Lastlog:ver<0.0.11>:auth<github:jonathanstowe>:api<1.0> {
         gather {
             loop {
                 if self.getllent() -> $entry {
-                    if get_user_by_uid($i++) -> $user {
+                    if get-user-by-uid($i++) -> $user {
                         take UserEntry.new( entry => $entry, user => $user);
                     }
                 }
