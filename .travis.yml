@@ -1,11 +1,9 @@
-branches:
-  except:
-    - gh-pages
-language: perl6
-sudo: false
-perl6:
-  - latest
+language: minimal
+
+services:
+  - docker
+
 install:
-  - rakudobrew build-zef
-  - zef --/test --deps-only install .
-  - zef build .
+  - docker pull jjmerelo/test-perl6
+
+script: docker run -t -v  $TRAVIS_BUILD_DIR:/test jjmerelo/test-perl6
