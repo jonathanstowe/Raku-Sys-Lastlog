@@ -18,9 +18,9 @@ Sys::Lastlog - Provide a moderately Object Oriented Interface to lastlog
 
   my $ll = Sys::Lastlog.new();
 
-  while(my $llent = $ll.getllent() )
+  while (my $llent = $ll.getllent() )
   {
-    say $llent.ll_line;
+    say $llent;
   }
 
 =end code
