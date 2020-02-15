@@ -25,7 +25,7 @@ Sys::Lastlog - Provide a moderately Object Oriented Interface to lastlog
 
 =end code
 
-See also the C<bin/p6lastlog> in the distributed files.
+See also the C<bin/rakulastlog> in the distributed files.
 
 =head1 DESCRIPTION
 
