@@ -6,4 +6,4 @@ services:
 install:
   - docker pull jjmerelo/test-perl6
 
-script: docker run -t -v  $TRAVIS_BUILD_DIR:/test jjmerelo/test-perl6
+script: docker run -t -v  $TRAVIS_BUILD_DIR:/test --entrypoint "perl6 -v && zef install --deps-only . && zef build . && zef test ." jjmerelo/test-perl6
