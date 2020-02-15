@@ -1,6 +1,6 @@
 #!perl6
 
-use v6.c;
+use v6;
 
 use LibraryMake;
 use Shell::Command;
@@ -15,8 +15,13 @@ class Build {
                 die "This currently does not work on darwin";
             }
         }
+        given $*DISTRO.name {
+            when 'alpine' {
+                die "Sys::Lastlog will not work on Alpine Linux - sorry";
+            }
+        }
         
-         my $srcdir = $workdir.IO.child('src').Str;
+         my $srcdir = $workdir.IO.add('src').Str;
          my Str $destdir = "$workdir/lib/../resources/libraries";
          mkpath $destdir;
          my %vars = get-vars($destdir);
