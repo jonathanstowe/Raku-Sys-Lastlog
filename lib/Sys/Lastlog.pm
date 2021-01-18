@@ -7,7 +7,7 @@ use NativeCall;
 
 =head1 NAME
 
-Sys::Lastlog - Provide a moderately Object Oriented Interface to lastlog 
+Sys::Lastlog - Provide a moderately Object Oriented Interface to lastlog
                files on some Unix-like systems.
 
 =head1 SYNOPSIS
@@ -130,7 +130,7 @@ a local login.
 
 Objects of this type are returned by the methods L<list|#list> and
 L<getllent|#getllent>.  They will stringify to a format similar to the
-output of a line from the command C<lastlog> on my system. 
+output of a line from the command C<lastlog> on my system.
 
 It contains the user details so that the methods can be used in a
 self-contained manner without having to look up the user details.
@@ -147,7 +147,7 @@ record is for.
 
 =end pod
 
-class Sys::Lastlog:ver<0.0.12>:auth<github:jonathanstowe>:api<1.0> {
+class Sys::Lastlog:ver<0.1.0>:auth<github:jonathanstowe>:api<1.0> {
 
     use System::Passwd;
 
@@ -214,7 +214,7 @@ class Sys::Lastlog:ver<0.0.12>:auth<github:jonathanstowe>:api<1.0> {
             }
         }
     }
-    
+
     my sub p_getlluid(int32 --> Entry ) is native(HELPER) { * }
 
     method getlluid(Int $uid --> Entry) {

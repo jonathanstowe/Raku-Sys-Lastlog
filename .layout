@@ -25,10 +25,6 @@
       "name": "README.md"
     },
     {
-      "name": "Build.pm",
-      "type": "file"
-    },
-    {
       "purpose": null,
       "children": [
         {
