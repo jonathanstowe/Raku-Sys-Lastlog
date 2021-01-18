@@ -25,8 +25,7 @@
      },
      "runtime": {
         "requires": [
-           "System::Passwd:ver<0.05+>",
-           "gdbm:from<native>"
+           "System::Passwd:ver<0.05+>"
         ]
      }
   },
