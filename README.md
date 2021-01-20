@@ -2,7 +2,7 @@
 
 Get access to the last login information on Unix-like systems
 
-[![Build Status](https://travis-ci.org/jonathanstowe/Raku-Sys-Lastlog.svg?branch=master)](https://travis-ci.org/jonathanstowe/Raku-Sys-Lastlog)
+![Build Status](https://github.com/jonathanstowe/Raku-Sys-Lastlog/workflows/CI/badge.svg)
 
 ## Description
 
