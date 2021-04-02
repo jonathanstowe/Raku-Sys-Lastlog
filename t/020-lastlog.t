@@ -1,4 +1,4 @@
-#!perl6
+#!raku
 
 use v6;
 
@@ -60,4 +60,4 @@ is @uents[0].user.username, "root", "and it's for 'root'";
 like @uents.gist, rx/^.root/, "and the gist is about right";
 
 done-testing();
-# vim: expandtab shiftwidth=4 ft=perl6
+# vim: expandtab shiftwidth=4 ft=raku

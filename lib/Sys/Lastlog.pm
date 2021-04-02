@@ -233,4 +233,4 @@ class Sys::Lastlog:ver<0.1.0>:auth<github:jonathanstowe>:api<1.0> {
         p_setllent();
     }
 }
-# vim: expandtab shiftwidth=4 ft=perl6
+# vim: expandtab shiftwidth=4 ft=raku
