@@ -1,52 +1,48 @@
 {
   "name": "Sys::Lastlog",
-  "version": "0.1.1",
-  "auth": "github:jonathanstowe",
-  "api": "1.0",
-  "description": "Raku access to Lastlog information on Unix-like systems",
+  "license": "Artistic-2.0",
   "source-url": "git://github.com/jonathanstowe/Raku-Sys-Lastlog.git",
-  "support": {
-    "irc": "irc://irc.freenode.net/#perl6",
-    "source": "git://github.com/jonathanstowe/Raku-Sys-Lastlog.git",
-    "email": "jns+git@gellyfish.co.uk",
-    "bugtracker": "https://github.com/jonathanstowe/Raku-Sys-Lastlog/issues"
-  },
-  "perl": "6.*",
-  "raku": "6.*",
+  "build-depends": [
+  ],
   "resources": [
     "libraries/lastloghelper"
   ],
-  "author": "Jonathan Stowe <jns+git@gellyfish.co.uk>",
-  "depends": {
-     "build" : {
-        "requires" : [
-           "Distribution::Builder::MakeFromJSON:ver<0.6+>"
-        ]
-     },
-     "runtime": {
-        "requires": [
-           "System::Passwd:ver<0.05+>"
-        ]
-     }
-  },
-  "builder": "Distribution::Builder::MakeFromJSON",
-  "build" : {
-     "src-dir" : "src",
-     "makefile-variables" : {
-        "lastloghelper": {"resource": "libraries/lastloghelper"}
-     }
-  },
+  "api": "1.0",
   "tags": [
     "unix",
     "audit",
     "lastlog"
   ],
-  "license": "Artistic-2.0",
-  "provides": {
-    "Sys::Lastlog": "lib/Sys/Lastlog.pm"
+  "raku": "6.*",
+  "author": "Jonathan Stowe <jns+git@gellyfish.co.uk>",
+  "auth": "zef:jonathanstowe",
+  "depends": {
+    "runtime": {
+      "requires": [
+        "System::Passwd:ver<0.05+>"
+      ]
+    },
+    "build": {
+      "requires": [
+        "Distribution::Builder::MakeFromJSON:ver<0.6+>"
+      ]
+    }
+  },
+  "version": "0.1.2",
+  "meta-version": "1",
+  "support": {
+    "bugtracker": "https://github.com/jonathanstowe/Raku-Sys-Lastlog/issues",
+    "email": "jns+git@gellyfish.co.uk",
+    "source": "git://github.com/jonathanstowe/Raku-Sys-Lastlog.git",
+    "irc": "irc://irc.freenode.net/#perl6"
   },
   "authors": [
     "Jonathan Stowe <jns+git@gellyfish.com>"
   ],
-  "meta-version": "1"
+  "provides": {
+    "Sys::Lastlog": "lib/Sys/Lastlog.pm"
+  },
+  "description": "Raku access to Lastlog information on Unix-like systems",
+  "test-depends": [
+  ]
 }
