@@ -43,7 +43,7 @@
           "children": [
             {
               "type": "file",
-              "name": "Lastlog.pm"
+              "name": "Lastlog.rakumod"
             }
           ],
           "name": "Sys",

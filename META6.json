@@ -19,7 +19,7 @@
   "depends": {
     "runtime": {
       "requires": [
-        "System::Passwd:ver<0.05+>"
+        "System::Passwd:ver<0.1+>:auth<zef:raku-community-modules>"
       ]
     },
     "build": {
@@ -28,7 +28,7 @@
       ]
     }
   },
-  "version": "0.1.3",
+  "version": "0.1.4",
   "meta-version": "1",
   "support": {
     "bugtracker": "https://github.com/jonathanstowe/Raku-Sys-Lastlog/issues",
@@ -40,7 +40,7 @@
     "Jonathan Stowe <jns+git@gellyfish.com>"
   ],
   "provides": {
-    "Sys::Lastlog": "lib/Sys/Lastlog.pm"
+    "Sys::Lastlog": "lib/Sys/Lastlog.rakumod"
   },
   "builder": "Distribution::Builder::MakeFromJSON",
   "build" : {

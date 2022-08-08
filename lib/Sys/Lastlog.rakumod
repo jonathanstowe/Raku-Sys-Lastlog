@@ -147,9 +147,9 @@ record is for.
 
 =end pod
 
-class Sys::Lastlog:ver<0.1.0>:auth<github:jonathanstowe>:api<1.0> {
+class Sys::Lastlog:ver<0.1.4>:auth<github:jonathanstowe>:api<1.0> {
 
-    use System::Passwd;
+    use System::Passwd:ver<0.1+>:auth<zef:raku-community-modules>;
 
     class Entry is repr('CStruct') {
         has int $.time;
