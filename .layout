@@ -67,10 +67,6 @@
           "name": "lastloghelper.c"
         },
         {
-          "name": "Configure.pl6",
-          "type": "file"
-        },
-        {
           "type": "file",
           "name": "Makefile.in"
         }
